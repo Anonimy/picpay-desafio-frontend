@@ -1,3 +1,63 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+$custom-blue-palette: (
+  50: #E2F1FF,
+  100: #B9DCFF,
+  200: #8AC6FF,
+  300: #56B0FF,
+  400: #279EFF,
+  500: #008EFF,
+  600: #007DFE,
+  700: #146CEA,
+  800: #1B5AD7,
+  900: #002D69,
+  A100: #FFFFFF,
+  A200: #F5F5F5,
+  A400: #F2F2F2,
+  A700: #616161,
+  contrast: (
+    600: #FFFFFF,
+    900: #F8F8F8,
+    A100: #333333,
+    A200: #333333,
+    A400: #333333,
+    A700: #333333
+  )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$picpay-desafio-frontend-primary: mat.define-palette($custom-blue-palette, 600, 300, 900);
+$picpay-desafio-frontend-accent: mat.define-palette($custom-blue-palette, A400, A200, A700);
+
+// The warn palette is optional (defaults to red).
+$picpay-desafio-frontend-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$picpay-desafio-frontend-theme: mat.define-light-theme((
+  color: (
+    primary: $picpay-desafio-frontend-primary,
+    accent: $picpay-desafio-frontend-accent,
+    warn: $picpay-desafio-frontend-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($picpay-desafio-frontend-theme);
+
 * {
   box-sizing: border-box;
 }
