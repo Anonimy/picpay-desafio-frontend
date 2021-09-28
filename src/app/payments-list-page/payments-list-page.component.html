@@ -20,57 +20,7 @@
     </header>
 
     <section>
-      <mat-table [dataSource]="payments" class="payments-table">
-        <ng-container matColumnDef="username">
-          <mat-header-cell *matHeaderCellDef> Usuário </mat-header-cell>
-          <mat-cell *matCellDef="let payment">
-            <span>{{payment.name}}</span>
-            <small>&commat;{{payment.username}}</small>
-          </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef="title">
-          <mat-header-cell *matHeaderCellDef> Título </mat-header-cell>
-          <mat-cell *matCellDef="let payment">
-            {{payment.title}}
-          </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef="date">
-          <mat-header-cell *matHeaderCellDef> Data </mat-header-cell>
-          <mat-cell *matCellDef="let payment">
-            {{payment.date | date:'dd MMM YYYY'}}
-            <small>{{payment.date | date:'HH:mm:ss'}}</small>
-          </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef="value">
-          <mat-header-cell *matHeaderCellDef> Valor </mat-header-cell>
-          <mat-cell *matCellDef="let payment">
-            {{payment.value | currency:'BRL'}}
-          </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef="isPayed">
-          <mat-header-cell *matHeaderCellDef> Pago </mat-header-cell>
-          <mat-cell *matCellDef="let payment">
-            <input type="checkbox" [checked]="payment.isPayed" readonly onclick="return false" />
-          </mat-cell>
-        </ng-container>
-
-        <span class="flex-spacer"></span>
-
-        <ng-container matColumnDef="actions">
-          <mat-header-cell *matHeaderCellDef></mat-header-cell>
-          <mat-cell *matCellDef="let payment">
-            <span>A</span>
-            <span>B</span>
-          </mat-cell>
-        </ng-container>
-
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-      </mat-table>
+      <app-payments-table [payments]="payments"></app-payments-table>
     </section>
   </main>
 

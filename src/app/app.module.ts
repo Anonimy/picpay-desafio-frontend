@@ -12,6 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
 import { ProductListPageComponent } from './payments-list-page/payments-list-page.component';
+import { PaymentsTableComponent } from './payments-table/payments-table.component';
 
 registerLocaleData(localePt)
 
@@ -19,6 +20,7 @@ registerLocaleData(localePt)
   declarations: [
     AppComponent,
     ProductListPageComponent,
+    PaymentsTableComponent,
    ],
   imports: [
     BrowserModule,

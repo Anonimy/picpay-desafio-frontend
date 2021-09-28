@@ -8,7 +8,6 @@ import { PaymentsService } from '../../services/payments.service';
   styleUrls: ['./payments-list-page.component.scss']
 })
 export class ProductListPageComponent implements OnInit {
-  displayedColumns = ['username', 'title', 'date', 'value', 'isPayed', 'actions'];
   payments: Payment[] = []
 
   constructor(private paymentsService: PaymentsService) { }
